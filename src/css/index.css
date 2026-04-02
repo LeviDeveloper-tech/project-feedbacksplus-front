@@ -1,16 +1,122 @@
-body{
-    background-color: rgb(33, 39, 95);
-}
-section > h1, p{
-    text-align: center;
-    color: white;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis:YEAR@1979&display=swap');
+
+
+:root{
+    --fontOne: 'Climate Crisis', YEAR, cursive;
+    --fontTwo: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;   
+    --fontThree: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 25%;
-    border-radius:30%;
+
+
+
+/* ------------------------------------------------------------ */
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
 }
+
+body{
+    background-color: rgb(33, 39, 95);
+    
+}
+header > *{
+    margin: 0px;
+}
+
+header{
+    flex-direction: column;
+    text-align: center;
+    color: white;
+}
+
+header h1{
+    margin-top: 20px;
+    font-size: 50px;
+    font-family: var(--fontOne);
+    font-weight: 200;
+}
+
+
+header h5{
+    margin-top: 2px;
+    font-size: 15px;
+    font-family:var(--fontTwo);
+}
+
+
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+form{
+    margin: 20px;
+    background-color: rgba(134, 135, 138, 0.219);
+    border-radius: 25px;
+    width: 300px;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    font-family: var(--fontThree);
+}
+
+form > h2{
+    margin: 15px;
+    font-weight: 200;
+    font-family: var(--fontOne);
+    font-size: xx-large;
+}
+
+form > div{
+    margin-top: 15px ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+form > div> input{
+    width: 80%;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+}
+
+form > button{
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: solid 1px white;
+    background-color:transparent; /* rgb(33, 39, 95) */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    animation: ripple 1s ease-out;
+}
+
+form > button ::after {
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    animation: ripple 1s ease-out;
+}
+
+form > p{
+    margin-top: 15px;
+    font-size: 12px;
+}
+
+form > p > a{
+    color: white;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+

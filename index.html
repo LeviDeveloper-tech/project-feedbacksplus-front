@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/css/index.css">
     <title>Feedback plus</title>
 </head>
+
 <body>
+    <header>
+        <h1>Feedback Plus</h1>
+        <h5>Aqui sua voz é nossa prioridade!</h5>
+    </header>
     <section id="main-section">
-        <h1>
-            Bem vindo ao Feedback Plus!
-        </h1>
-        <p>
-            Aqui sua voz é nossa prioridade.
-        </p>
+        <form>
+            <h2>
+                Login
+            </h2>
+            <div id="username-div">
+                <h3 id="username-h3">Usuário</h3>
+                <input type="text" id="username-input" placeholder="Digite seu usuário">
+            </div>
+            <div id="password-div">
+                <h3 id="password-h3">Senha</h3>
+                <input type="text" id="password-input" placeholder="Digite sua senha">
+            </div>
+            <button id="btn-form">Entrar</button>
+            <p>Não tem conta? <br>
+                <a href="http://" target="_blank" rel="noopener noreferrer">Clique aqui e crie a sua!</a>
+            </p>
+        </form>
     </section>
-    <section class="secundary-section">
-        <img src="./src/img/demonstrativo.jpg" alt="Atendimento ao cliente">
-    </section>
+
 </body>
+
 </html>
