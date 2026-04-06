@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis:YEAR@1979&display=swap');
+
+
+:root{
+    --fontOne: 'Climate Crisis', YEAR, cursive;
+    --fontTwo: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;   
+    --fontThree: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(33, 39, 95);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    align-items: center ;
+}
+h1{
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-family: var(--fontOne);
+    font-weight: 100;
+    color: white;
+}
+
+form{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(134, 135, 138, 0.219);
+    border-radius: 25px;
+    width: 75%;
+    max-width: 450px;
+    height: auto;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+form div{
+    display: flex;
+    flex-direction: column;
+}
+
+form div > label{
+    color: white;
+    font-size: 14px;
+    font-family: var(--fontTwo);
+}
+
+form div > input{
+    padding: 7px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+form button{
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: #007bff;
+    color: white;
+    width: auto;
+    min-width: 200px;
+    max-width: 300px;
+    font-family: var(--fontTwo);
+    cursor: pointer;
+}
+
+form button:hover{
+    background-color: #0056b3;
+}
+
+form a{
+    color: white;
+    font-family: var(--fontTwo);
+    text-align: center;
+}

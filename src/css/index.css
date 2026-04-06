@@ -33,7 +33,7 @@ header{
 
 header h1{
     margin-top: 20px;
-    font-size: 50px;
+    font-size: 30px;
     font-family: var(--fontOne);
     font-weight: 200;
 }
@@ -66,9 +66,9 @@ form{
 
 form > h2{
     margin: 15px;
-    font-weight: 200;
+    font-weight: 100;
     font-family: var(--fontOne);
-    font-size: xx-large;
+    font-size: 25px;
 }
 
 form > div{
@@ -86,6 +86,10 @@ form > div> input{
     border: none;
 }
 
+form > div > h3{
+    font-size: 15px;
+}
+
 form > button{
     margin-top: 20px;
     padding: 10px 20px;
@@ -93,7 +97,7 @@ form > button{
     border: solid 1px white;
     background-color:transparent; /* rgb(33, 39, 95) */
     color: white;
-    font-size: 16px;
+    font-size: 13px;
     cursor: pointer;
     animation: ripple 1s ease-out;
 }
