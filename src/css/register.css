@@ -1,90 +1,169 @@
-@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis:YEAR@1979&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Climate+Crisis:YEAR@1979&display=swap");
 
-
-:root{
-    --fontOne: 'Climate Crisis', YEAR, cursive;
-    --fontTwo: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;   
-    --fontThree: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+:root {
+  --fontOne: "Climate Crisis", YEAR, cursive;
+  --fontTwo: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --fontThree:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-
-
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
-body{
-    background-color: rgb(33, 39, 95);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
-    justify-content: center;
-    align-items: center ;
+body {
+  background-color: rgb(33, 39, 95);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  justify-content: center;
+  align-items: center;
 }
-h1{
-    margin-bottom: 20px;
-    font-size: 30px;
-    font-family: var(--fontOne);
-    font-weight: 100;
-    color: white;
-}
-
-form{
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(134, 135, 138, 0.219);
-    border-radius: 25px;
-    width: 75%;
-    max-width: 450px;
-    height: auto;
-    justify-content: space-around;
-    gap: 10px;
+h1 {
+  margin-bottom: 20px;
+  font-size: 30px;
+  font-family: var(--fontOne);
+  font-weight: 100;
+  color: white;
 }
 
-form div{
-    display: flex;
-    flex-direction: column;
+form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(134, 135, 138, 0.219);
+  border-radius: 25px;
+  width: 75%;
+  max-width: 450px;
+  height: auto;
+  justify-content: space-around;
+  gap: 10px;
 }
 
-form div > label{
-    color: white;
-    font-size: 14px;
-    font-family: var(--fontTwo);
+form div {
+  display: flex;
+  flex-direction: column;
 }
 
-form div > input{
-    padding: 7px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
+form div > label {
+  color: white;
+  font-size: 14px;
+  font-family: var(--fontTwo);
 }
 
-form button{
-    margin: auto;
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    background-color: #007bff;
-    color: white;
-    width: auto;
-    min-width: 200px;
-    max-width: 300px;
-    font-family: var(--fontTwo);
-    cursor: pointer;
+form div > input {
+  padding: 7px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
 }
 
-form button:hover{
-    background-color: #0056b3;
+form button {
+  margin: auto;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background-color: #007bff;
+  color: white;
+  width: auto;
+  min-width: 200px;
+  max-width: 300px;
+  font-family: var(--fontTwo);
+  cursor: pointer;
 }
 
-form a{
-    color: white;
-    font-family: var(--fontTwo);
-    text-align: center;
+form button:hover {
+  background-color: #0056b3;
+}
+
+form a {
+  color: white;
+  font-family: var(--fontTwo);
+  text-align: center;
+}
+
+/* Fundo escuro que cobre a tela toda */
+.modal-overlay {
+  display: none; /* Começa escondido */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+/* A caixa branca do modal */
+.modal-content {
+  background: rgb(19, 26, 85);
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 450px;
+  width: 90%;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  border-top: 5px solid #3f0404; /* Detalhe em vinho no topo */
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  color: whitesmoke;
+  border-bottom: 2px solid #d4af37; /* Linha dourada sob o título */
+  padding-bottom: 10px;
+}
+
+/* Área dos dados revisados */
+#lista-revisao {
+  margin: 20px 0;
+  line-height: 1.6;
+}
+
+#lista-revisao p {
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+/* Container dos botões */
+.modal-actions {
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* Estilo comum dos botões */
+.modal-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-confirm {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-confirm:hover {
+  background-color: #218838;
+}
+
+.btn-cancel {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-cancel:hover {
+  background-color: #c82333;
 }
