@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/css/index.css">
-    <title>Feedback plus</title>
+    <title>Feedback Plus</title>
 </head>
 
 <body>
@@ -14,25 +14,27 @@
         <h5>Aqui sua voz é nossa prioridade!</h5>
     </header>
     <section id="main-section">
-        <form>
-            <h2>
-                Login
-            </h2>
+        <form id="form-login">
+            <h2>Login</h2>
+            
             <div id="username-div">
-                <h3 id="username-h3">Usuário</h3>
-                <input type="text" id="username-input" placeholder="Digite seu usuário">
+                <label for="username-input" id="username-h3">Usuário</label>
+                <input type="text" id="username-input" name="login" placeholder="Digite seu usuário" required>
             </div>
+            
             <div id="password-div">
-                <h3 id="password-h3">Senha</h3>
-                <input type="text" id="password-input" placeholder="Digite sua senha">
+                <label for="password-input" id="password-h3">Senha</label>
+                <input type="password" id="password-input" name="senha" placeholder="Digite sua senha" required>
             </div>
-            <button id="btn-form">Entrar</button>
+            
+            <button type="submit" id="btn-form">Entrar</button>
+            
             <p>Não tem conta? <br>
-                <a href="./pages/register.html" rel="noopener noreferrer">Clique aqui e crie a sua!</a>
+                <a href="./pages/register.html">Clique aqui e crie a sua!</a>
             </p>
         </form>
     </section>
 
+    <script src="./src/js/login.js" defer></script>
 </body>
-
 </html>

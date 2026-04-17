@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback Plus</title>
+    <title>Sucesso - FeedbackPlus</title>
+    <script src="../src/js/auth.js"></script>
     <link rel="stylesheet" href="../src/css/sucesso.css">
 </head>
 
 <body>
-    <h1>
-        Você conseguiu fazer login!
-        <br>
-        Bem vindo (a)!
-    </h1>
-    <a href="../index.html">Página de login</a>
+    <main style="text-align: center; margin-top: 50px;">
+        <h1>🎉 Login realizado com sucesso!</h1>
+        <p>Bem-vindo à área do FeedbackPlus.</p>
 
+        <br>
+        <a href="../index.html" onclick="sessionStorage.clear()">Sair e voltar ao login</a>
+    </main>
 </body>
 
 </html>
