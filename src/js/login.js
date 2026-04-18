@@ -1,4 +1,4 @@
-// 1. Definição da URL (mesma lógica que usamos no registro)
+//Definição da URL (mesma lógica que usamos no registro)
 const isLocal =
   window.location.hostname === "localhost" ||
   window.location.hostname === "127.0.0.1";
@@ -8,7 +8,7 @@ const url = isLocal
 
 const form = document.getElementById("form-login");
 
-// 2. Escutando o evento de submit do formulário
+// Escutando o evento de submit do formulário
 form.addEventListener("submit", async (event) => {
   event.preventDefault(); // Impede o recarregamento da página
 
@@ -30,13 +30,19 @@ form.addEventListener("submit", async (event) => {
     const resultado = await response.json();
 
     if (response.ok) {
-      // 3. SUCESSO: Salva a sessão e redireciona
+      //Salva a sessão e redireciona
       sessionStorage.setItem("usuarioLogado", "true");
-      alert(resultado.mensagem); // "Login realizado com sucesso!"
-// Se o login der certo:
-    window.location.href = "./pages/sucesso.html";
+
+      // Salvando o nome que o Java enviou no JSON
+      // O 'resultado' já contém o JSON 
+      sessionStorage.setItem("usuarioNome", resultado.nome);
+
+      alert(resultado.mensagem);
+
+      // O redirecionamento
+      window.location.href = "./pages/sucesso.html";
     } else {
-      // 4. ERRO: Exibe mensagem do back (401 Unauthorized)
+      //Exibe mensagem do back (401 Unauthorized)
       alert(resultado.erro || "Falha ao entrar.");
     }
   } catch (error) {
