@@ -32,3 +32,185 @@ a {
   text-decoration: underline;
   font-weight: 600;
 }
+/* ----------------------------------------------------------------------------- */
+/* Configurações Gerais */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1a1a2e; /* Azul escuro profundo */
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  width: 90%;
+  max-width: 1000px;
+  margin-top: 50px !important;
+}
+
+h2 {
+  color: #e94560; /* Rosa/Vermelho para destaque */
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Container da Tabela */
+.container {
+  background-color: #16213e; /* Tom levemente diferente para o card */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Botões de Ação */
+.acoes-topo {
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-weight: bold;
+  transition:
+    transform 0.2s,
+    background 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.btn-incluir {
+  background-color: #0f3460;
+  color: white;
+  padding: 12px 20px;
+}
+
+.btn-incluir:hover {
+  background-color: #214d85;
+}
+
+.btn-edit {
+  background-color: #f1c40f;
+  color: #333;
+  margin-right: 5px;
+}
+
+.btn-delete {
+  background-color: #e94560;
+  color: white;
+}
+
+/* Estilização da Tabela */
+#tabela-usuarios {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background-color: #0f3460;
+  border-radius: 8px;
+  overflow: hidden; /* Para o border-radius funcionar */
+}
+
+#tabela-usuarios th,
+#tabela-usuarios td {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #16213e;
+}
+
+#tabela-usuarios th {
+  background-color: #0c2444;
+  color: #e94560;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+#tabela-usuarios tr:hover {
+  background-color: #1a1a2e;
+}
+
+/* Link de Sair */
+a {
+  display: inline-block;
+  margin-top: 30px;
+  color: #999;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+a:hover {
+  color: #e94560;
+  text-decoration: underline;
+}
+
+/* --- MODAL (Para a Opção B que você escolheu) --- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  background-color: #16213e;
+  margin: 10% auto;
+  padding: 30px;
+  width: 35%;
+  border-radius: 12px;
+  border: 1px solid #e94560;
+  text-align: left;
+  margin-top: 5%;
+}
+
+.modal-content h2 {
+  font-size: 1.2rem;
+  margin-top: 0;
+}
+
+.modal-content label {
+  display: block;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  background: #1a1a2e;
+  border: 1px solid #0f3460;
+  color: white;
+  border-radius: 5px;
+  box-sizing: border-box; /* Garante que o padding não quebre a largura */
+}
+
+.modal-content button[type="submit"] {
+  width: 100%;
+  margin-top: 25px;
+  background-color: #e94560;
+  color: white;
+  padding: 12px;
+}
+
+.close {
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  color: #999;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #fff;
+}

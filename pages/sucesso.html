@@ -6,17 +6,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sucesso - FeedbackPlus</title>
     <script src="../src/js/auth.js"></script>
+    <script src="../src/js/sucesso.js"></script>
     <link rel="stylesheet" href="../src/css/sucesso.css">
 </head>
 
 <body>
     <main style="text-align: center; margin-top: 50px;">
-        <h1>🎉 Login realizado com sucesso!</h1>
-        <p>Bem-vindo à área do FeedbackPlus.</p>
+        <section class="container">
+            <h2>Usuários - Listar</h2>
 
-        <br>
+            <div class="acoes-topo">
+                <button onclick="abrirModalIncluir()" class="btn-incluir">➕ Incluir Novo Usuário</button>
+            </div>
+
+            <table id="tabela-usuarios">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Login</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="corpo-tabela"></tbody>
+            </table>
+        </section>
         <a href="../index.html" onclick="sessionStorage.clear()">Sair e voltar ao login</a>
     </main>
+    <!-- Modal de Edição -->
+    <div id="modal-editar" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModal()">&times;</span>
+            <h2>Editar Usuário</h2>
+            <form id="form-editar">
+                <input type="hidden" id="edit-id">
+                <div class="campo">
+                    <label>Nome:</label>
+                    <input type="text" id="edit-nome" required>
+                </div>
+                <div class="campo">
+                    <label>Login:</label>
+                    <input type="text" id="edit-login" required>
+                </div>
+                <button type="submit" class="btn-salvar">Salvar Alterações</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Inclusão -->
+    <div id="modal-incluir" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModalIncluir()">&times;</span>
+            <h2>Incluir Novo Usuário</h2>
+            <form id="form-incluir">
+                <div class="campo">
+                    <label>Digite seu nome:</label>
+                    <input type="text" id="add-nome" required>
+                </div>
+                <div class="campo">
+                    <label>Data de nascimento:</label>
+                    <input type="date" id="add-dataNascimento" required>
+                </div>
+                <div class="campo">
+                    <label>Digite seu CPF:</label>
+                    <input type="text" id="add-cpf" placeholder="xxx.xxx.xxx-xx" required>
+                </div>
+                <div class="campo">
+                    <label>Digite seu número de telefone:</label>
+                    <input type="tel" id="add-telefone" placeholder="(xx) xxxxx-xxxx" required>
+                </div>
+                <div class="campo">
+                    <label>Crie um nome de usuário - (login):</label>
+                    <input type="text" id="add-login" required>
+                </div>
+                <div class="campo">
+                    <label>Tipo de Usuário:</label>
+                    <select id="add-perfil" required>
+                        <option value="3">Cliente</option>
+                        <option value="2">Funcionário</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label>Crie uma senha:</label>
+                    <input type="password" id="add-senha" required>
+                </div>
+                <div class="campo">
+                    <label>Confirme sua senha:</label>
+                    <input type="password" id="add-senha-confirma" required>
+                </div>
+                <button type="submit" class="btn-salvar">Enviar</button>
+            </form>
+        </div>
+    </div>
+
 </body>
 
 </html>
