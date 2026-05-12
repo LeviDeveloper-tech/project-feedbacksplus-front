@@ -1,169 +1,200 @@
-@import url("https://fonts.googleapis.com/css2?family=Climate+Crisis:YEAR@1979&display=swap");
-
 :root {
-  --fontOne: "Climate Crisis", YEAR, cursive;
-  --fontTwo: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  --fontThree:
-    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  --bg-dark: #0f111a;
+  --bg-card: #1a1d2e;
+  --primary-pink: #e84393;
+  --light-pink: #fd79a8;
+  --text-white: #efefef;
+  --text-gray: #a0a0c0;
+  --border-color: #333;
+  --input-bg: #0f111a;
 }
 
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  background-color: rgb(33, 39, 95);
-  display: flex;
-  flex-direction: column;
+  background-color: var(--bg-dark);
+  color: var(--text-white);
   min-height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
   justify-content: center;
   align-items: center;
-}
-h1 {
-  margin-bottom: 20px;
-  font-size: 30px;
-  font-family: var(--fontOne);
-  font-weight: 100;
-  color: white;
-}
-
-form {
   padding: 20px;
+}
+
+#register-container {
+  width: 100%;
+  max-width: 600px; /* Um pouco mais largo que o login para caber as colunas */
+}
+
+.register-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.register-header h1 {
+  color: var(--primary-pink);
+  font-size: 2.2rem;
+  text-shadow: 0 0 10px rgba(232, 67, 147, 0.2);
+}
+
+.register-header p {
+  color: var(--text-gray);
+  font-size: 0.9rem;
+}
+
+.register-card {
+  background-color: var(--bg-card);
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Layout em duas colunas para telas maiores */
+.input-row {
   display: flex;
-  flex-direction: column;
-  background-color: rgba(134, 135, 138, 0.219);
-  border-radius: 25px;
-  width: 75%;
-  max-width: 450px;
-  height: auto;
-  justify-content: space-around;
-  gap: 10px;
+  gap: 15px;
 }
 
-form div {
-  display: flex;
-  flex-direction: column;
+.input-group {
+  flex: 1;
+  margin-bottom: 15px;
 }
 
-form div > label {
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text-gray);
+  font-size: 0.85rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px 12px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
   color: white;
-  font-size: 14px;
-  font-family: var(--fontTwo);
+  transition: border-color 0.3s;
 }
 
-form div > input {
-  padding: 7px;
-  border-radius: 10px;
-  border: none;
+.input-group input:focus {
   outline: none;
+  border-color: var(--primary-pink);
 }
 
-form button {
-  margin: auto;
-  margin-top: 20px;
-  padding: 10px;
-  border-radius: 10px;
+#button {
+  width: 100%;
+  padding: 12px;
+  background: var(--primary-pink);
   border: none;
-  outline: none;
-  background-color: #007bff;
   color: white;
-  width: auto;
-  min-width: 200px;
-  max-width: 300px;
-  font-family: var(--fontTwo);
+  font-weight: bold;
+  border-radius: 6px;
   cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s;
+  text-transform: uppercase;
 }
 
-form button:hover {
-  background-color: #0056b3;
+#button:hover {
+  background: var(--light-pink);
+  box-shadow: 0 0 15px rgba(232, 67, 147, 0.4);
 }
 
-form a {
-  color: white;
-  font-family: var(--fontTwo);
+.register-footer {
+  margin-top: 20px;
   text-align: center;
 }
 
-/* Fundo escuro que cobre a tela toda */
+.register-footer a {
+  color: var(--text-gray);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.register-footer a:hover {
+  color: var(--primary-pink);
+}
+
+/* MODAL DE REVISÃO (ESTILO DASHBOARD) */
 .modal-overlay {
-  display: none; /* Começa escondido */
+  display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
   z-index: 1000;
-  align-items: center;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(5px);
   justify-content: center;
+  align-items: center;
 }
 
-/* A caixa branca do modal */
 .modal-content {
-  background: rgb(19, 26, 85);
+  background: var(--bg-card);
   padding: 25px;
+  border: 1px solid var(--primary-pink);
   border-radius: 12px;
-  max-width: 450px;
   width: 90%;
-  color: #ffffff;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  border-top: 5px solid #3f0404; /* Detalhe em vinho no topo */
+  max-width: 450px;
 }
 
-.modal-content h3 {
-  margin-top: 0;
-  color: whitesmoke;
-  border-bottom: 2px solid #d4af37; /* Linha dourada sob o título */
+.modal-header h3 {
+  color: var(--primary-pink);
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 10px;
 }
 
-/* Área dos dados revisados */
-#lista-revisao {
-  margin: 20px 0;
-  line-height: 1.6;
+.revisao-dados p {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: var(--text-white);
 }
 
-#lista-revisao p {
-  margin: 8px 0;
-  font-size: 15px;
+.revisao-dados b {
+  color: var(--primary-pink);
 }
 
-/* Container dos botões */
 .modal-actions {
-  margin-top: 25px;
   display: flex;
-  gap: 15px;
-  justify-content: center;
-}
-
-/* Estilo comum dos botões */
-.modal-actions button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .btn-confirm {
-  background-color: #28a745;
+  background: var(--primary-pink);
   color: white;
-}
-
-.btn-confirm:hover {
-  background-color: #218838;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .btn-cancel {
-  background-color: #dc3545;
-  color: white;
+  background: transparent;
+  color: var(--text-gray);
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .btn-cancel:hover {
-  background-color: #c82333;
+  color: white;
+  border-color: white;
+}
+
+/* Responsividade para celular */
+@media (max-width: 480px) {
+  .input-row {
+    flex-direction: column;
+    gap: 0;
+  }
 }

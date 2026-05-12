@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Cliente - FeedbackPlus</title>
+    <script src="../src/js/auth.js"></script>
+    <link rel="stylesheet" href="../src/css/home/cliente-home.css">
+</head>
+
+<body>
+    <aside class="sidebar" id="sidebar">
+    <button id="btn-toggle" class="btn-toggle">☰</button>
+    <div class="perfil-info">
+        <div class="avatar">👤</div>
+        <div class="info-texto">
+            <h3 id="sidebar-nome">Carregando...</h3>
+            <span id="sidebar-login" class="badge">@usuario</span>
+        </div>
+    </div>
+    <nav class="menu-links">
+        <a href="cliente-home.html" class="ativo"><span>📊 Dashboard</span></a>
+        <button class="btn-sidebar-link" id="btn-abrir-editar"><span>✏️ Editar Informações</span></button>
+        <a href="#"><span>📝 Meus Feedbacks</span></a>
+    </nav>
+    <button class="btn-logout" onclick="fazerLogout()"><span>🚪 Sair</span></button>
+</aside>
+
+    <main class="conteudo-principal">
+        <section class="container">
+            <h2>Bem-vindo à sua Dashboard, Cliente!</h2>
+            <p>Aqui você pode enviar feedbacks e ver seu histórico.</p>
+            <div class="dashboard-card">
+                <p>Use o menu lateral para ver suas informações e editar seus dados.</p>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal-editar-cliente" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Editar Informações</h2>
+                <span id="close-editar-cliente" class="close">&times;</span>
+            </div>
+            <form id="form-editar-cliente">
+                <div class="campo">
+                    <label>Nome:</label>
+                    <input type="text" id="input-nome" required>
+                </div>
+                <div class="campo">
+                    <label>Login:</label>
+                    <input type="text" id="input-login" required>
+                </div>
+                <div class="campo">
+                    <label>Telefone:</label>
+                    <input type="tel" id="input-telefone" required>
+                </div>
+                <div class="campo">
+                    <label>Senha (deixe em branco para manter atual):</label>
+                    <input type="password" id="input-senha" placeholder="Nova senha">
+                </div>
+                <button type="submit" class="btn-salvar">Salvar Alterações</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../src/js/home/sidebar.js"></script>
+    <script src="../src/js/home/cliente-home.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeedbackPlus - Painel Administrativo</title>
+    <link rel="stylesheet" href="../src/css/home/adm-home.css">
+    <script src="../src/js/auth.js"></script>
+</head>
+
+<body>
+
+    <aside class="sidebar" id="sidebar">
+        <button id="btn-toggle" class="btn-toggle">☰</button>
+        <div class="perfil-info">
+            <div class="avatar">👤</div>
+            <div class="info-texto">
+                <h3 id="sidebar-nome">Administrador</h3>
+                <span id="sidebar-perfil" class="badge">ADM</span>
+            </div>
+        </div>
+        <nav class="menu-links">
+            <a href="adm-home.html" class="ativo">📊 Dashboard</a>
+            <a href="#" onclick="abrirModalIncluir()">➕ Novo Usuário</a>
+            <a href="#">👥 Empresas</a>
+        </nav>
+        <button class="btn-logout" onclick="fazerLogout()">Sair 🚪</button>
+    </aside>
+
+    <main class="conteudo-principal">
+        <header class="topo-pagina">
+            <h1>Gestão Geral de Usuários</h1>
+            <p>Controle total sobre empresas e clientes.</p>
+        </header>
+
+        <section class="tabela-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NOME</th>
+                        <th>LOGIN</th>
+                        <th>TIPO</th>
+                        <th>AÇÕES</th>
+                    </tr>
+                </thead>
+                <tbody id="corpo-tabela"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <div id="modal-editar" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Editar Usuário</h2>
+                <span class="close" onclick="fecharModal()">&times;</span>
+            </div>
+            <form id="form-editar">
+                <input type="hidden" id="edit-id">
+                <div class="campo">
+                    <label>Nome:</label>
+                    <input type="text" id="edit-nome" required>
+                </div>
+                <div class="campo">
+                    <label>Telefone:</label>
+                    <input type="tel" id="edit-telefone" required>
+                </div>
+                <div class="campo">
+                    <label>Tipo:</label>
+                    <select id="edit-tipo" required>
+                        <option value="1">Administrador</option>
+                        <option value="2">Empresa</option>
+                        <option value="3">Cliente</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label>Login:</label>
+                    <input type="text" id="edit-login" required>
+                </div>
+                <div class="campo">
+                    <label>Senha (deixe vazio para manter atual):</label>
+                    <input type="password" id="edit-senha">
+                </div>
+                <button type="submit" class="btn-salvar">Salvar Alterações</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal-incluir" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Incluir Novo Usuário</h2>
+                <span class="close" onclick="fecharModalIncluir()">&times;</span>
+            </div>
+            <form id="form-incluir">
+                <div class="campo"><label>Nome:</label><input type="text" id="add-nome" required></div>
+                <div class="campo"><label>Nascimento:</label><input type="date" id="add-dataNascimento" required></div>
+                <div class="campo"><label>CPF:</label><input type="text" id="add-cpf" required></div>
+                <div class="campo"><label>Telefone:</label><input type="tel" id="add-telefone" required></div>
+                <div class="campo"><label>Login:</label><input type="text" id="add-login" required></div>
+                <div class="campo">
+                    <label>Tipo:</label>
+                    <select id="add-perfil" required>
+                        <option value="2">Empresa</option>
+                        <option value="3">Cliente</option>
+                    </select>
+                </div>
+                <div class="campo"><label>Senha:</label><input type="password" id="add-senha" required></div>
+                <div class="campo"><label>Confirme:</label><input type="password" id="add-senha-confirma" required>
+                </div>
+                <button type="submit" class="btn-salvar">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../src/js/home/sidebar.js"></script>
+    <script src="../src/js/home/adm-home.js"></script>
+</body>
+
+</html>

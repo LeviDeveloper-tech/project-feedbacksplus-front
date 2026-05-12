@@ -6,7 +6,7 @@ const url = isLocal
   ? "http://localhost:8081/api/usuarios/cadastrar-cliente"
   : "/api/usuarios/cadastrar-cliente";
 
-// Selecionamos o botão uma única vez
+// Seleciona o botão do forms
 const btn = document.getElementById("button");
 
 // --- 1. MÁSCARAS DE INPUT (VISUAL) ---
@@ -82,7 +82,7 @@ function AbrirRevisao(event) {
     return;
   }
 
-  // Alimenta o conteúdo do modal (Exibindo data em formato BR)
+  // Alimenta o conteúdo do modal
   document.getElementById("lista-revisao").innerHTML = `
         <p><b>Nome:</b> ${dados.nome}</p>
         <p><b>CPF:</b> ${dados.cpf}</p>
@@ -91,7 +91,7 @@ function AbrirRevisao(event) {
         <p><b>Login:</b> ${dados.login}</p>
     `;
 
-  // Exibe o modal
+  // Exibe o modal de revisão
   document.getElementById("modal-revisao").style.display = "flex";
 
   // Configura o clique do botão "Confirmar" dentro do modal
@@ -111,17 +111,17 @@ async function EnviarDadosReais(dados, senha) {
   };
 
   try {
-    const request = await fetch(url, {
+    const response = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dadosParaEnviar),
     });
 
-    if (request.ok) {
+    if (response.ok) {
       window.location.href = "../index.html";
       alert("Usuário cadastrado com Sucesso! Faça login!");
     } else {
-      const erro = await request.text();
+      const erro = await response.text();
       alert("Erro : " + erro);
     }
   } catch (error) {

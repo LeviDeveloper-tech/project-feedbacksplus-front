@@ -27,26 +27,44 @@ form.addEventListener("submit", async (event) => {
       body: JSON.stringify(dadosParaEnviar),
     });
 
-    const resultado = await response.json();
+    const contentType = response.headers.get("content-type");
+    const isJson = contentType && contentType.includes("application/json");
 
-    if (response.ok) {
-      //Salva a sessão e redireciona
+    if (isJson) {
+      const resultado = await response.json();
+
+      if (!response.ok) {
+        const mensagemErro = resultado.erro || resultado.mensagem || "Login ou senha inválidos.";
+        alert(mensagemErro);
+        return;
+      }
+
       sessionStorage.setItem("usuarioLogado", "true");
-
-      // Salvando o nome que o Java enviou no JSON
-      // O 'resultado' já contém o JSON 
+      sessionStorage.setItem("usuarioIdLogado", resultado.usuarioId);
       sessionStorage.setItem("usuarioNome", resultado.nome);
+      sessionStorage.setItem("usuarioLogin", loginInput);
+      sessionStorage.setItem("usuarioPessoaTipoId", resultado.pessoaTipoId);
 
-      alert(resultado.mensagem);
+      alert(resultado.mensagem || "Sucesso!");
 
-      // O redirecionamento
-      window.location.href = "./pages/sucesso.html";
+      if (resultado.pessoaTipoId === 1) {
+        window.location.href = "./pages/adm-home.html";
+      } else if (resultado.pessoaTipoId === 2) {
+        window.location.href = "./pages/empresa-home.html";
+      } else if (resultado.pessoaTipoId === 3) {
+        window.location.href = "./pages/cliente-home.html";
+      } else {
+        alert("Tipo de usuário não reconhecido.");
+      }
     } else {
-      //Exibe mensagem do back (401 Unauthorized)
-      alert(resultado.erro || "Falha ao entrar.");
+      const textoErro = await response.text();
+      console.error("O que o Java mandou:", textoErro);
+      alert(
+        "O servidor não retornou JSON. Verifique o console (F12) aba 'Network'.",
+      );
     }
   } catch (error) {
     console.error("Erro na requisição:", error);
-    alert("Erro ao conectar com o servidor.");
+    alert("Servidor offline ou erro de rede.");
   }
 });

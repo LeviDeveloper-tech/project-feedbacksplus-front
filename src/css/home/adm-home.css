@@ -1,0 +1,375 @@
+/* ============================================================
+   CONFIGURAÇÕES GERAIS E TEMA (DARK BORDÔ)
+   ============================================================ */
+:root {
+  --bg-dark: #0f111a;
+  --bg-sidebar: #1a1d2e;
+  --primary-pink: #e84393;
+  --light-pink: #fd79a8;
+  --text-white: #efefef;
+  --text-gray: #a0a0c0;
+  --border-color: #333;
+  --modal-bg: #161925;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  display: flex;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   SIDEBAR RETRÁTIL
+   ============================================================ */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  padding: 30px 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  overflow: hidden !important;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.perfil-info {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 0.2s ease;
+}
+
+.avatar {
+  font-size: 45px;
+  background-color: var(--primary-pink);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  box-shadow: 0 0 15px rgba(232, 67, 147, 0.3);
+}
+
+.menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.menu-links a {
+  color: var(--text-gray);
+  text-decoration: none;
+  padding: 12px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.menu-links a:hover,
+.menu-links a.ativo {
+  background-color: var(--primary-pink);
+  color: white;
+  transform: translateX(5px);
+}
+
+/* ============================================================
+   CONTROLE DE ESTADO (FECHADA)
+   ============================================================ */
+
+/* Quando a sidebar fecha, o perfil some (conforme sua solicitação) */
+.sidebar.fechada {
+  width: 60px;
+  padding: 20px 0;
+}
+
+.sidebar.fechada .perfil-info {
+  display: none;
+}
+
+/* Esconde o texto dos links, deixando só ícones se você usá-los */
+.sidebar.fechada .menu-links a span {
+  display: none;
+}
+
+.sidebar.fechada .menu-links a {
+  justify-content: center;
+  padding: 12px 0;
+  min-width: 0; /* Remove a largura mínima que estava empurrando o layout */
+  width: 100%;
+}
+
+.sidebar.fechada .menu-links a i {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+/* Botão de Toggle posicionado dentro da sidebar */
+.btn-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--primary-pink);
+  color: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar.fechada .btn-toggle {
+  right: 50%;
+  transform: translateX(50%);
+}
+
+/* Esconder o perfil e textos IMEDIATAMENTE ao fechar */
+.sidebar.fechada .perfil-info,
+.sidebar.fechada .info-texto,
+.sidebar.fechada .menu-links a span,
+.sidebar.fechada .badge,
+.sidebar.fechada .btn-logout {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.1s; /* Some rápido para não quebrar o layout */
+}
+
+.sidebar.fechada .perfil-info,
+.sidebar.fechada .info-texto,
+.sidebar.fechada .menu-links {
+  display: none;
+}
+
+.sidebar.fechada .btn-logout {
+  border: none;
+  font-size: 0; /* Esconde o texto "Sair" */
+  width: 100%;
+}
+.sidebar.fechada .btn-logout::before {
+  content: "🚪"; /* Deixa só o emoji */
+  font-size: 1.2rem;
+}
+
+/* ============================================================
+   CONTEÚDO E TABELA
+   ============================================================ */
+.conteudo-principal {
+  margin-left: 260px;
+  padding: 40px;
+  width: calc(100% - 260px);
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar.fechada + .conteudo-principal {
+  margin-left: 60px;
+  width: calc(100% - 60px);
+}
+
+.tabela-container {
+  background-color: var(--bg-sidebar);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  color: var(--primary-pink);
+  text-align: left;
+  padding: 15px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+td {
+  padding: 15px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* ============================================================
+   MODAIS (IDs PADRONIZADOS)
+   ============================================================ */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 200;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background-color: var(--modal-bg);
+  margin: 5vh auto;
+  padding: 30px;
+  border: 1px solid var(--primary-pink);
+  border-radius: 15px;
+  max-width: 500px;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.campo {
+  margin-bottom: 15px;
+}
+
+.campo label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text-gray);
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  padding: 10px;
+  background: var(--bg-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  color: white;
+}
+
+.btn-salvar {
+  width: 100%;
+  padding: 12px;
+  background: var(--primary-pink);
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* ============================================================
+   BOTÕES DE AÇÃO NA TABELA (EDITAR E EXCLUIR)
+   ============================================================ */
+.btn-edit,
+.btn-delete {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo específico do botão Editar */
+.btn-edit {
+  background-color: #2d3436; /* Fundo escuro neutro */
+  color: #0984e3; /* Azul vibrante no ícone/texto */
+  border: 1px solid #0984e3;
+}
+
+.btn-edit:hover {
+  background-color: #0984e3;
+  color: white;
+}
+
+/* Estilo específico do botão Excluir */
+.btn-delete {
+  background-color: #2d3436;
+  color: #d63031; /* Vermelho vibrante */
+  border: 1px solid #d63031;
+}
+
+.btn-delete:hover {
+  background-color: #d63031;
+  color: white;
+}
+
+/* ============================================================
+   BOTÃO DE SAIR (SIDEBAR)
+   ============================================================ */
+.btn-logout {
+  background-color: rgba(232, 67, 147, 0.1); /* Rosa translúcido */
+  border: 1px solid var(--primary-pink);
+  color: var(--primary-pink);
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-top: auto; /* Empurra o botão para o rodapé da sidebar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.btn-logout:hover {
+  background-color: var(--primary-pink);
+  color: white;
+  box-shadow: 0 0 15px rgba(232, 67, 147, 0.4);
+}
+
+/* Ajuste do botão Sair quando a sidebar estiver fechada */
+.sidebar.fechada .btn-logout {
+  border: none;
+  background: transparent;
+  padding: 15px 0;
+}
+
+.sidebar.fechada .btn-logout span {
+  display: none; /* Esconde o texto "Sair" */
+}
+
+/* Indicador para a conta do próprio administrador */
+.badge-lock {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-gray);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  border: 1px dashed var(--border-color);
+  display: inline-block;
+}

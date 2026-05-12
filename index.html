@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/index.css">
-    <title>Feedback Plus</title>
+    <title>Feedback Plus - Login</title>
 </head>
-
 <body>
-    <header>
-        <h1>Feedback Plus</h1>
-        <h5>Aqui sua voz é nossa prioridade!</h5>
-    </header>
-    <section id="main-section">
-        <form id="form-login">
-            <h2>Login</h2>
-            
-            <div id="username-div">
-                <label for="username-input" id="username-h3">Usuário</label>
-                <input type="text" id="username-input" name="login" placeholder="Digite seu usuário" required>
-            </div>
-            
-            <div id="password-div">
-                <label for="password-input" id="password-h3">Senha</label>
-                <input type="password" id="password-input" name="senha" placeholder="Digite sua senha" required>
-            </div>
-            
-            <button type="submit" id="btn-form">Entrar</button>
-            
-            <p>Não tem conta? <br>
-                <a href="./pages/register.html">Clique aqui e crie a sua!</a>
-            </p>
-        </form>
-    </section>
+    <main id="login-container">
+        <header class="login-header">
+            <h1>Feedback Plus</h1>
+            <p>Aqui sua voz é nossa prioridade!</p>
+        </header>
+
+        <section id="main-section">
+            <form id="form-login" class="login-card">
+                <h2>Acesse sua conta</h2>
+                
+                <div class="input-group">
+                    <label for="username-input">Usuário</label>
+                    <input type="text" id="username-input" name="login" placeholder="Digite seu usuário" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password-input">Senha</label>
+                    <input type="password" id="password-input" name="senha" placeholder="Digite sua senha" required>
+                </div>
+                
+                <button type="submit" id="btn-form">Entrar</button>
+                
+                <div class="login-footer">
+                    <p>Não tem conta? 
+                        <a href="./pages/register.html">Clique aqui e crie a sua!</a>
+                    </p>
+                </div>
+            </form>
+        </section>
+    </main>
 
     <script src="./src/js/login.js" defer></script>
 </body>
