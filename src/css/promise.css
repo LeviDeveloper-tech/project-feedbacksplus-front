@@ -1,0 +1,66 @@
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background:#0f111a;
+            font-family: 'Inter', sans-serif;
+            color: #efefef;
+        }
+        .promise-card {
+            max-width: 720px;
+            width: 100%;
+            padding: 32px;
+            border-radius: 16px;
+            background: #1a1d29;
+            box-shadow: 0 14px 35px rgba(51, 65, 85, 0.1);
+            text-align: center;
+        }
+        .promise-card h1 {
+            margin-bottom: 16px;
+            font-size: 2rem;
+            color: #e84393;
+        }
+        .promise-card p {
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+        .promise-card a {
+            width: 100%;
+            padding: 14px;
+            background-color:#e84393;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(232, 67, 147, 0.3);
+            margin-top: 10px;
+        }
+
+        .promise-card a:hover {
+        background-color: #fd79a8;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(232, 67, 147, 0.4);
+        }
+
+        .promise-card a:active {
+        transform: translateY(0);
+        }
+
+        .promise-section {
+            text-align: left;
+            margin-top: 24px;
+        }
+        .promise-section h2 {
+            color: #fd79a8;
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+        }
+        .promise-section li {
+            margin-bottom: 10px;
+        }
