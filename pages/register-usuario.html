@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback Plus - Cadastre-se</title>
-    <link rel="stylesheet" href="../src/css/register.css">
+    <link rel="stylesheet" href="../src/css/register-usuario.css">
 </head>
+
 <body>
     <main id="register-container">
         <header class="register-header">
@@ -15,7 +17,7 @@
 
         <section id="main-section">
             <form id="form-register" class="register-card">
-                
+
                 <div class="input-row">
                     <div class="input-group">
                         <label for="nome">Nome Completo</label>
@@ -55,7 +57,7 @@
                 </div>
 
                 <button type="submit" id="button">Finalizar Cadastro</button>
-                
+
                 <div class="register-footer">
                     <a href="../index.html">Já tem uma conta? Volte ao login</a>
                 </div>
@@ -69,17 +71,19 @@
                 <h3>Confira seus dados</h3>
             </div>
             <div id="lista-revisao" class="revisao-dados">
-                </div>
-            
+            </div>
+
             <div class="modal-actions">
                 <button id="confirmar-final" class="btn-confirm">Confirmar e Enviar</button>
-                <button type="button" class="btn-cancel" onclick="document.getElementById('modal-revisao').style.display='none'">
+                <button type="button" class="btn-cancel"
+                    onclick="document.getElementById('modal-revisao').style.display='none'">
                     Cancelar e Editar
                 </button>
             </div>
         </div>
     </div>
 
-    <script type="module" src="../src/js/register.js"></script>
+    <script type="module" src="../src/js/register-usuario.js"></script>
 </body>
+
 </html>

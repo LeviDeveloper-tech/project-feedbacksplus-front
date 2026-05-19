@@ -48,11 +48,11 @@ form.addEventListener("submit", async (event) => {
       alert(resultado.mensagem || "Sucesso!");
 
       if (resultado.pessoaTipoId === 1) {
-        window.location.href = "./pages/adm-home.html";
+        window.location.href = "./pages/homes/adm-home.html";
       } else if (resultado.pessoaTipoId === 2) {
-        window.location.href = "./pages/empresa-home.html";
+        window.location.href = "./pages/homes/empresa-home.html";
       } else if (resultado.pessoaTipoId === 3) {
-        window.location.href = "./pages/cliente-home.html";
+        window.location.href = "./pages/homes/cliente-home.html";
       } else {
         alert("Tipo de usuário não reconhecido.");
       }

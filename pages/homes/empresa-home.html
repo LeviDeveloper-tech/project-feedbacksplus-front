@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeedbackPlus - Painel Corporativo</title>
+    <link rel="stylesheet" href="../../src/css/home/empresa-home.css">
+    <script src="../../src/js/auth.js"></script>
+</head>
+
+<body>
+
+    <aside class="sidebar" id="sidebar">
+        <button id="btn-toggle" class="btn-toggle">☰</button>
+        <div class="perfil-info">
+            <div class="avatar">🏢</div>
+            <div class="info-texto">
+                <h3 id="sidebar-nome">Nome da Empresa</h3>
+                <span id="sidebar-perfil" class="badge">Empresa</span>
+            </div>
+        </div>
+        <nav class="menu-links">
+            <a href="empresa-home.html" class="ativo">📊 Dashboard</a>
+            <a href="#feedbacks">💬 Feedbacks Recebidos</a>
+        </nav>
+        <button class="btn-logout" onclick="fazerLogout()">Sair 🚪</button>
+    </aside>
+
+    <main class="conteudo-principal">
+        <header class="topo-pagina">
+            <h1>Painel de Avaliações</h1>
+            <p>Monitore a satisfação dos clientes e acompanhe as notas atribuídas à sua empresa.</p>
+        </header>
+
+        <section class="dashboard-cards">
+            <div class="card">
+                <h3>Total de Feedbacks</h3>
+                <p id="total-feedbacks"
+                    style="font-size: 2.5rem; font-weight: bold; margin-top: 10px; color: var(--text-white);">0</p>
+            </div>
+            <div class="card">
+                <h3>Média Geral de Notas</h3>
+                <p id="media-notas"
+                    style="font-size: 2.5rem; font-weight: bold; margin-top: 10px; color: var(--primary-pink);">0.0 ★
+                </p>
+            </div>
+        </section>
+
+        <section class="secao-dados">
+            <div class="card-dados">
+                <div class="card-dados-header">
+                    <h2>Feedbacks dos Clientes</h2>
+                </div>
+                <div class="tabela-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Data / Hora</th>
+                                <th>Cliente</th>
+                                <th>Nota</th>
+                                <th>Observação / Comentário</th>
+                            </tr>
+                        </thead>
+                        <tbody id="corpo-tabela-feedbacks">
+                            <tr>
+                                <td colspan="5" style="text-align: center; color: var(--text-gray);">
+                                    Nenhum feedback registrado para esta empresa ainda.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../../src/js/home/sidebar.js"></script>
+    <script src="../../src/js/home/empresa-home.js"></script>
+</body>
+
+</html>

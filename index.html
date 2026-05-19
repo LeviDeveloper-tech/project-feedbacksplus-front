@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="./src/css/index.css">
     <title>Feedback Plus - Login</title>
 </head>
+
 <body>
     <main id="login-container">
         <header class="login-header">
@@ -17,22 +19,25 @@
         <section id="main-section">
             <form id="form-login" class="login-card">
                 <h2>Acesse sua conta</h2>
-                
+
                 <div class="input-group">
                     <label for="username-input">Usuário</label>
                     <input type="text" id="username-input" name="login" placeholder="Digite seu usuário" required>
                 </div>
-                
+
                 <div class="input-group">
                     <label for="password-input">Senha</label>
                     <input type="password" id="password-input" name="senha" placeholder="Digite sua senha" required>
                 </div>
-                
+
                 <button type="submit" id="btn-form">Entrar</button>
-                
+
                 <div class="login-footer">
-                    <p>Não tem conta? 
-                        <a href="./pages/register.html">Clique aqui e crie a sua!</a>
+                    <p>Não tem conta? Cadastre-se como:</p>
+                    <p>
+                        <a href="./pages/register-usuario.html">👤 Usuário / Cliente</a>
+                        <span style="color: var(--text-gray); margin: 0 8px;">|</span>
+                        <a href="./pages/register-empresa.html">🏢 Empresa</a>
                     </p>
                 </div>
             </form>
@@ -41,4 +46,5 @@
 
     <script src="./src/js/login.js" defer></script>
 </body>
+
 </html>

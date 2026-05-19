@@ -1,0 +1,293 @@
+/* ============================================================
+   CONFIGURAÇÕES GERAIS E TEMA (MANTENDO O PADRÃO DO ADM)
+   ============================================================ */
+:root {
+  --bg-dark: #0f111a;
+  --bg-sidebar: #1a1d2e;
+  --primary-pink: #e84393;
+  --light-pink: #fd79a8;
+  --text-white: #efefef;
+  --text-gray: #a0a0c0;
+  --border-color: #333;
+  --modal-bg: #161925;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  display: flex;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   SIDEBAR RETRÁTIL (CÓPIA FIEL DO ADM-HOME para evitar quebras)
+   ============================================================ */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  padding: 30px 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+  z-index: 100;
+}
+
+/* Quando fechar: Altera largura exatamente como no Admin */
+.sidebar.fechada {
+  width: 80px;
+}
+
+/* Regras cruciais de ocultação trazidas do adm-home.css */
+.sidebar.fechada .info-texto,
+.sidebar.fechada .menu-links a span,
+.sidebar.fechada .btn-logout span {
+  display: none;
+}
+
+/* Ajustes de centralização dos ícones remanescentes */
+.sidebar.fechada .perfil-info {
+  justify-content: center;
+  border-bottom: none;
+}
+
+.sidebar.fechada .btn-toggle {
+  align-self: center;
+}
+
+.sidebar.fechada .menu-links a,
+.sidebar.fechada .btn-logout {
+  justify-content: center;
+  padding: 12px 0;
+}
+
+/* ELEMENTOS INTERNOS DA SIDEBAR */
+.btn-toggle {
+  background: none;
+  border: none;
+  color: var(--text-white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-bottom: 20px;
+}
+
+.perfil-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 35px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 20px;
+}
+
+.avatar {
+  font-size: 2.2rem;
+}
+
+.info-texto h3 {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.badge {
+  background-color: var(--primary-pink);
+  color: var(--text-white);
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu-links a {
+  color: var(--text-gray);
+  text-decoration: none;
+  padding: 12px 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.menu-links a:hover,
+.menu-links a.ativo {
+  background-color: rgba(232, 67, 147, 0.15);
+  color: var(--primary-pink);
+}
+
+/* BOTÃO DE LOGOUT */
+.btn-logout {
+  background-color: rgba(232, 67, 147, 0.1);
+  border: 1px solid var(--primary-pink);
+  color: var(--primary-pink);
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.btn-logout:hover {
+  background-color: var(--primary-pink);
+  color: white;
+  box-shadow: 0 0 15px rgba(232, 67, 147, 0.4);
+}
+
+.sidebar.fechada .perfil-info,
+.sidebar.fechada .info-texto,
+.sidebar.fechada .menu-links {
+  display: none;
+}
+
+.sidebar.fechada .btn-logout,
+.sidebar.fechada .btn-logout span {
+  justify-content: center;
+  padding: 12px 0;
+}
+
+/* ============================================================
+   CONTEÚDO PRINCIPAL E DASHBOARD
+   ============================================================ */
+.conteudo-principal {
+  margin-left: 260px;
+  flex: 1;
+  padding: 40px;
+  transition: margin-left 0.3s ease;
+}
+
+/* Acompanha o recuo da sidebar ao fechar */
+.sidebar.fechada + .conteudo-principal {
+  margin-left: 80px;
+}
+
+.topo-pagina {
+  margin-bottom: 35px;
+}
+
+.topo-pagina h1 {
+  font-size: 2.2rem;
+  color: var(--text-white);
+  margin-bottom: 5px;
+}
+
+.topo-pagina p {
+  color: var(--text-gray);
+}
+
+.dashboard-cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+.card {
+  flex: 1;
+  background-color: var(--modal-bg);
+  border: 1px solid var(--border-color);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card h3 {
+  font-size: 0.95rem;
+  color: var(--text-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================================
+   TABELA DE DADOS
+   ============================================================ */
+.secao-dados {
+  width: 100%;
+}
+
+.card-dados {
+  background-color: var(--modal-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-dados-header {
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 15px;
+}
+
+.card-dados-header h2 {
+  font-size: 1.3rem;
+  color: var(--text-white);
+}
+
+.tabela-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.95rem;
+}
+
+th {
+  background-color: rgba(255, 255, 255, 0.02);
+  color: var(--text-gray);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .dashboard-cards {
+    flex-direction: column;
+  }
+  .conteudo-principal {
+    padding: 20px;
+  }
+}
