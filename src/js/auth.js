@@ -61,5 +61,5 @@ if (
 // Função para logout
 function fazerLogout() {
   sessionStorage.clear();
-  window.location.href = "../index.html";
+  window.location.href = "../../index.html";
 }
